@@ -12,7 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
+ 
 namespace ProgrammingClass2.MvcLesson
 {
     public class Startup
@@ -20,6 +20,8 @@ namespace ProgrammingClass2.MvcLesson
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+
+            // This is a new comment.
         }
 
         public IConfiguration Configuration { get; }
