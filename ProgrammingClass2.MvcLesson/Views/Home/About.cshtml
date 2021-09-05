@@ -1,0 +1,137 @@
+﻿@{
+    ViewData["Title"] = "About Us";
+}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+<div class="text-center">
+    <h1 class="display-4">@ViewData["Title"]</h1>
+    <p> Here you'll find out more information about us and our great history.</p>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-4" style="margin-top: 45px; margin-bottom: 70px;">
+            <h5>
+                What is ASP.NET?
+            </h5>
+            <p>
+                .NET is a developer platform made up of tools, programming languages, and libraries for building many different types of applications. ASP.NET extends the .NET developer platform with tools and libraries specifically for building web apps.
+            </p>
+            <p>
+                The base platform provides components that apply to all different types of apps. Additional frameworks, such as ASP.NET, extend .NET with components for building specific types of apps.
+            </p>
+        </div>
+        <img src="https://dotnet.microsoft.com/static/images/illustrations/swimlane-dotnet-platform.svg?v=UApu7Dp-G5wMuiE_mJSg3-9VlYF84IXnXuZ6DrShXq8" class="col-5" />
+        <div class="col-3" style="margin-top: 50px;">
+            <p>
+                Here are some things included in the .NET platform:
+            </p>
+            <ul>
+                ●   The C#, F#, and Visual Basic programming languages
+            </ul>
+            <ul>
+                ●   Base libraries for working with strings, dates, files/IO, and more
+            </ul>
+            <ul>
+                ●   Editors and tools for Windows, Linux, macOS, and Docker
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row justify-content-around">
+        <div class="col-4">
+            <h4>
+                Cross Platform
+            </h4>
+            <p>
+                Whether you're working in C#, F#, or Visual Basic, your code will run natively on any compatible OS. Different .NET implementations handle the heavy lifting for you:
+                <ul>
+                    .NET Core is a cross-platform .NET implementation for websites, servers, and console apps on Windows, Linux, and macOS.
+                </ul>
+                <ul>
+                    .NET Framework supports websites, services, desktop apps, and more on Windows.
+                </ul>
+                <ul>
+                    Xamarin/Mono is a .NET implementation for running apps on all the major mobile operating systems.
+                </ul>
+            </p>
+        </div>
+        <div class="col-4">
+            <h4>
+                .NET Standard
+            </h4>
+            <p>
+                There are various implementations of .NET. Each implementation allows .NET code to execute in different places—Linux, macOS, Windows, iOS, Android, and many more. .NET Standard is a formal specification of the APIs that are common across all these .NET implementations.
+            </p>
+            <p>
+                .NET Standard allows libraries to build against the agreed on set of common APIs, ensuring they can be used in any .NET application—mobile, desktop, IoT, web, or anywhere you write .NET code.
+            </p>
+        </div>
+    </div>
+</div>
+
+<div>
+    <img src="https://dotnet.microsoft.com/static/images/redesign/shared/languages.svg?v=vWU_Pl-GdtsBx3iyM0ZPUHadYRPKrqXMRt5hPegBO38" width="600" style="position: absolute; top: 1130px; left: 0;"/>
+    <div style="text-align: center; position: absolute; top: 1180px; right: 10px;">
+        <h4>
+            Languages
+        </h4>
+        <p>
+            You can write .NET apps in C#, F#, or Visual Basic.
+            <ul>
+                C# is a simple, modern, object-oriented, and type-safe programming language.
+            </ul>
+            <ul>
+                F# is a programming language that makes it easy to write succinct, robust, and performant code.
+            </ul>
+            <ul>
+                Visual Basic is an approachable language with a simple syntax for building type-safe, object-oriented apps.
+            </ul>
+        </p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col align-self-start" style="margin-top: 500px;">
+            <h4>
+                Meetups
+            </h4>
+            <p>
+                .NET meetups are a great and fun way of meeting other like-minded developers and joining one couldn't be easier. Learn about tricks & tips, discover the latest .NET has to offer, or just come to be inspired.
+            </p>
+            <p>
+                Go virtual with the .NET Virtual User Group! Join now to get notified about awesome upcoming online .NET meetups and events.
+            </p>
+        </div>
+        <div class="col align-self-center" style="margin-top: 530px;">
+            <h4>
+                Build Secure Apps
+            </h4>
+            <p>
+                ASP.NET supports industry standard authentication protocols. Built-in features help protect your apps against cross-site scripting (XSS) and cross-site request forgery (CSRF). ASP.NET provides a built-in user database with support for multi-factor authentication and external authentication with Google, Twitter, and more.
+            </p>
+            <p>
+                Code running in the browser executes in the same security sandbox as JavaScript frameworks. Blazor code executing on the server has the flexibility to do anything you would normally do on the server, such as connecting directly to a database.
+            </p>
+        </div>
+        <div class="col align-self-center" style="margin-top: 875px;">
+            <h4>
+                Libraries
+            </h4>
+            <p>
+                To extend functionality, Microsoft and others maintain a healthy package ecosystem built on .NET Standard. NuGet is a package manager built specifically for .NET that contains over 90,000 packages.
+            </p>
+            <p>
+                New to NuGet? Start with a walkthrough showing how NuGet powers your .NET development.
+            </p>
+        </div>
+    </div>
+</div>
+
+<img src="https://dotnet.microsoft.com/static/images/redesign/shared/platform.svg?v=kiJX50RY5Os3hKMASL__RCi8ckBi97bnyl1M__x5UGs" width="650" style="position: absolute; top: 1475px; right: 0;" >
+
+<p style="margin-bottom:150px;">  </p>

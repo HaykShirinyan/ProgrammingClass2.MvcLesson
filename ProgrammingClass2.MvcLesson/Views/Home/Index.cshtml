@@ -2,7 +2,106 @@
     ViewData["Title"] = "Home Page";
 }
 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
+    <h1 class="display-2">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p style="margin: 0"> Supported on Windows, Linux, and macOS </p>
 </div>
+
+<div style="margin: 40px 10px;" class="jumbotron">
+    <div class="text-center" id="mainContent" tabindex="-1" role="main">
+        <p class="lead x-hidden-focus, lead x-hidden-focus">
+            <h2>
+                Free. Cross-platform. Open source.
+                <br>
+                A framework for building web apps and services with .NET and C#.
+            </h2>
+        </p>
+    </div>
+</div>
+
+<p style="margin: 30px"> . </p>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-8">
+            <img src="https://dotnet.microsoft.com/static/images/illustrations/swimlane-blazor-ui-build.svg?v=2_6GDQc4LI7_aGT3Y17cmM90BeCmC2uMo9wiJU3Biiw" width="650" />
+        </div>
+        <div class="col-3" style="margin: 25px 15px 0px 0px">
+            <h4>
+                Interactive web UI with C#
+            </h4>
+            <p>
+                Blazor is a feature of ASP.NET for building interactive web UIs using C# instead of JavaScript. Blazor gives you real .NET running in the browser on WebAssembly. Blazor lets you build interactive web UIs using C# instead of JavaScript.
+            </p>
+        </div>
+    </div>
+</div>
+
+<p style="margin: 45px"> . </p>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3">
+            <div style="border: 7px solid rgb(33 32 32 / 80%); border-radius: 10px; padding: 12px;">
+                <h4>
+                    Web Apps
+                </h4>
+                <p>
+                    Build full stack web apps with HTML, CSS, JavaScript and C#.
+                </p>
+                <p>
+                    The web is an incredible platform. Its user-centered security model, inherent linkability providing built-in sharing, and independent specification makes the web a unique platform to develop software on. With Chrome OS, the power of this platform is front and center; web apps are a core feature throughout the operating system: they can be installed, they can be pinned to the shelf, and they can be found from the launcher.
+                </p>
+            </div>
+        </div>
+        <div class="col-3">
+            <div style="border: 7px solid rgb(33 32 32 / 80%); border-radius: 10px; padding: 12px;">
+                <h4>
+                    APIs
+                </h4>
+                <p>
+                    Develop REST APIs for a range of clients, including browsers and mobile devices.
+                </p>
+                <p>
+                    ASP.NET makes it easy to build services that reach a broad range of clients, including browsers and mobile devices. With ASP.NET you use the same framework and patterns to build both web pages and services, side-by-side in the same project. Secure API endpoints with built-in support for industry standard JSON Web Tokens (JWT). Policy-based authorization gives you the flexibility to define powerful access control rules—all in code. ASP.NET was designed for modern web experiences.
+                </p>
+            </div>
+        </div>
+        <div class="col-3">
+            <div style="border: 7px solid rgb(33 32 32 / 80%); border-radius: 10px; padding: 12px;">
+                <h4>
+                    Real-time
+                </h4>
+                <p>
+                    Enable bi-directional communication between server and client, in real-time.
+                </p>
+                <p>
+                    Today's modern apps are expected to deliver up-to-date information without hitting a refresh button. Add real-time functionality to your dashboards, maps, games and more. What is real-time functionality? It's the ability to have your server-side code push content to connected clients as it happens, in real-time. While chat is often used as an example, you can do a whole lot more. Any time a user refreshes a web page to see new data, or the page implements Ajax long polling to retrieve new data, it's a candidate for using SignalR.
+                </p>
+            </div>
+        </div>
+        <div class="col-3">
+            <div style="border: 7px solid rgb(33 32 32 / 80%); border-radius: 10px; padding: 12px;">
+                <h4>
+                    Microservices
+                </h4>
+                <p>
+                    Create independently deployable microservices that run on Docker containers.
+                </p>
+                <p>
+                    Microservices are a design pattern in which applications are composed of small, independent modules that communicate with each other using well-defined contracts. Each microservice focuses on a single concept. Microservices make it easier to develop, test, and deploy isolated parts of your application. Once deployed, each microservice can be independently scaled as needed. Containers combine an app plus its configuration and dependencies into a single, independently deployable unit. Containers are an excellent fit for bundling and deploying independent microservices.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-lg" style="position: absolute; left: 480px; bottom: 100px; border-color: black;" href="/home/contact" role="button">Get Started</a>
+    <a class="btn btn-lg" style="position: absolute; right: 480px; bottom: 100px; border-color: black " href="/home/about" role="button">Learn More</a>
+</div>
+
+<p style="margin-bottom: 150px;"> </p>
