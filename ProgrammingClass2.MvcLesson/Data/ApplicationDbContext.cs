@@ -23,6 +23,8 @@ namespace ProgrammingClass2.MvcLesson.Data
         // dotnet ef database update.
         public DbSet<Product> Products { get; set; }
 
+        public DbSet<Category> Categories { get; set; }
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
