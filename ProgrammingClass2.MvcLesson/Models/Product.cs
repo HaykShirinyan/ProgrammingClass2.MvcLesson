@@ -6,11 +6,19 @@ using System.Threading.Tasks;
 
 namespace ProgrammingClass2.MvcLesson.Models
 {
+    // 1 qayln ayn e, vor petq e Model avelacnenq. Ays depqum modele Product class-n e.
+    // C# model-neri property-nerov sarqvum en SQL table-nere.
+
+    // 2 qayln ayn e, vor petq e ays model-ov ApplicationDbContext-i mej property avelacnenq vore hamarjeq klini database-i table-in.
     public class Product
     {
+        // Key attribute nshanakum e Id property-n ays model-i primary key e.
+        // Primary key-i mijocov heshtutyamb gtnum enq mer uzac toxe.
         [Key]
         public int Id { get; set; }
 
+        // Required attribute nshanakum e chenq karox apranq sarqel aranc anun talu. Apranqi anune partadir e
+        // StringLength attribute nshanakum e apranqi anune petq e amena shate 50 tar unena.
         [Required]
         [StringLength(50)]
         public string Name { get; set; }
@@ -21,6 +29,5 @@ namespace ProgrammingClass2.MvcLesson.Models
         public int Quantity { get; set; }
 
         public decimal UnitPrice { get; set; }
-
     }
 }
