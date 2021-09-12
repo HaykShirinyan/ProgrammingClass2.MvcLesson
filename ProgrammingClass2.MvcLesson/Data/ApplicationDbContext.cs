@@ -17,6 +17,10 @@ namespace ProgrammingClass2.MvcLesson.Data
         // Heto grum eq hetevyal hramane` dotnet ef migrations add Products
         // Ays depqum "Products" mase mere migration-i anunn e. Migration-nere karox anvanel inch uzum eq.
 
+        // Arajin angam migration avelacneluc, karox e error stanaq, vorovhetev "dotnet ef" cragire compi-i mej install arac chlini
+        // Petq cmd line-i mej hetevyal hramane greq` dotnet tool install --global dotnet-ef.
+        // Ays hramane miayn mek angam e petq grel. Dranic heto migration avelacnele ev database update anele kashxati.
+
         // 4rd qayln ayn e, vor stugum enq migration file meji code, vorpeszi hamozvenq, vor amen inch chisht e avelacrel.
 
         // 5rd qayln ayn e, vor ogtagorcum enq 4rd qaylum stexcvac migratione database update anelu hamar. Cmd Line-i mej grum enq hetevyale`
