@@ -63,6 +63,13 @@
                class="btn btn-secondary">
               Edit
             </a>
+
+            <a asp-controller="Products"
+               asp-action="Delete"
+               asp-route-id="@product.Id"
+               class="btn btn-secondary">
+              Delete
+            </a>
           </td>
         </tr>
       }
