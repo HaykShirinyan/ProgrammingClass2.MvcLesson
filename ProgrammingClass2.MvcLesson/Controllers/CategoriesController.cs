@@ -39,7 +39,8 @@ namespace ProgrammingClass2.MvcLesson.Controllers
             {
                 _context.Categories.Add(category);
                 _context.SaveChanges();
-                return RedirectToAction("Index");
+
+                return RedirectToAction(nameof(Index));
 
             }
             return View(category);
