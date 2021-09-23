@@ -57,5 +57,49 @@ namespace ProgrammingClass2.MvcLesson.Controllers
 
             return NotFound();
         }
+
+        [HttpPost]
+        public IActionResult Edit(Category category)
+        {
+            if (this.ModelState.IsValid)
+            {
+                _context.Categories.Update(category);
+                _context.SaveChanges();
+
+                return RedirectToAction(nameof(Index));
+            }
+
+            return View(category);
+        }
+
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            var category = _context.Categories.Find(id);
+
+            if (category != null)
+            {
+                return View(category);
+            }
+
+            return NotFound();
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            var category = _context.Categories.Find(id);
+
+            if (category != null)
+            {
+                _context.Categories.Remove(category);
+                _context.SaveChanges();
+
+                return RedirectToAction(nameof(Index));
+            }
+
+            return NotFound();
+        }
     }
 }
