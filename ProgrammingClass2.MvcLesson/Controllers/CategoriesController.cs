@@ -59,7 +59,6 @@ namespace ProgrammingClass2.MvcLesson.Controllers
             return NotFound();
         }
 
-
         [HttpPost]
         public IActionResult Edit(Category category)
         {
