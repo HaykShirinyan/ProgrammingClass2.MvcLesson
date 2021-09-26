@@ -8,6 +8,7 @@ namespace ProgrammingClass2.MvcLesson.Models
 {
     public class Category
     {
+        [Key]
         public int ID { get; set; }
 
         [Required]
@@ -16,6 +17,5 @@ namespace ProgrammingClass2.MvcLesson.Models
 
         [StringLength(300)]
         public string Description { get; set; }
-
     }
 }
