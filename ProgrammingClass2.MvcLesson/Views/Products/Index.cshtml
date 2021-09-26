@@ -1,0 +1,71 @@
+﻿@model List<Product>
+
+@* 
+  8rd qayln e Index view-n sarqele. Aystex mer poxacvac model-e product-neri list e (List<Product>)
+  Aystex HTML table-i mej cuyc enq talis bolor product-nerei tvyalnere
+*@
+
+<div>
+  <a asp-controller="Products" asp-action="Create" class="btn btn-primary mb-3">
+    Create New
+  </a>
+
+  <table class="table">
+    <thead>
+      <!-- tr nshanakum e table row -->
+      <tr>
+        <!-- th nshanakum e table header -->
+        <th>
+          ID
+        </th>
+        <th>
+          Name
+        </th>
+        <th>
+          Description
+        </th>
+        <th>
+          Quantity
+        </th>
+        <th>
+          Unit Price
+        </th>
+        <th>
+          Actions
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      @foreach (var product in Model)
+      {
+        <tr>
+          <!-- td nshanakum e table data -->
+          <td>
+            @product.Id
+          </td>
+          <td>
+            @product.Name
+          </td>
+          <td>
+            @product.Description
+          </td>
+          <td>
+            @product.Quantity
+          </td>
+          <td>
+            @product.UnitPrice
+          </td>
+          <td>
+            <a asp-controller="Products"
+               asp-action="Edit"
+               asp-route-id="@product.Id"
+               class="btn btn-secondary">
+              Edit
+            </a>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
