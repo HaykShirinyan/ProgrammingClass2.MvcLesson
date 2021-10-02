@@ -29,5 +29,12 @@ namespace ProgrammingClass2.MvcLesson.Models
         public int Quantity { get; set; }
 
         public decimal UnitPrice { get; set; }
+
+        // Foreign Key.
+        // Foreign Key-n mek ayl table-i Primary Key e, vori mijocov karox enq ayd table-i tvyalnere gtnel ev dnel mer axyusaki mej
+
+        // int? nshanakum a ays int property-n hnaravor e null nshanakel. Aranc harcakani int tesaki popoxakannerin hnaravor che null nshanakel.
+        public int? UnitOfMeasureId { get; set; }
+        public UnitOfMeasure UnitOfMeasure { get; set; }
     }
 }
