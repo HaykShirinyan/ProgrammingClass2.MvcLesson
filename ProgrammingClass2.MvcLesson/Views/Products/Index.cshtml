@@ -1,10 +1,5 @@
 ﻿@model List<Product>
 
-@* 
-  8rd qayln e Index view-n sarqele. Aystex mer poxacvac model-e product-neri list e (List<Product>)
-  Aystex HTML table-i mej cuyc enq talis bolor product-nerei tvyalnere
-*@
-
 <div class="text-center">
   <a asp-controller="Products" asp-action="Create" class="btn btn-primary mb-3">
     Create New
@@ -12,9 +7,7 @@
 
   <table class="table">
     <thead>
-      <!-- tr nshanakum e table row -->
       <tr>
-        <!-- th nshanakum e table header -->
         <th>
           ID
         </th>
@@ -26,6 +19,9 @@
         </th>
         <th>
           Unit of Measure
+        </th>
+        <th>
+          Product Type
         </th>
         <th>
           Quantity
@@ -43,7 +39,6 @@
       @foreach (var product in Model)
       {
         <tr>
-          <!-- td nshanakum e table data -->
           <td>
             @product.Id
           </td>
@@ -54,8 +49,10 @@
             @product.Description
           </td>
           <td>
-            @* UnitOfMeasure?.Name nshanakum e cuyc tur UnitOfMeasure property-i Name-e ete UnitOfMeasure null che *@
             @product.UnitOfMeasure?.Name
+          </td>
+          <td>
+            @product.ProductType?.Name
           </td>
           <td>
             @product.Quantity
