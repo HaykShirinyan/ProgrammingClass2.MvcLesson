@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProgrammingClass2.MvcLesson.Models
 {
-    public class Product
+    public class ProductType
     {
         [Key]
         public int Id { get; set; }
@@ -17,12 +18,5 @@ namespace ProgrammingClass2.MvcLesson.Models
 
         [StringLength(300)]
         public string Description { get; set; }
-
-        public int Quantity { get; set; }
-
-        public decimal UnitPrice { get; set; }
-
-        public int? UnitOfMeasureId { get; set; }
-        public UnitOfMeasure UnitOfMeasure { get; set; }
     }
 }
