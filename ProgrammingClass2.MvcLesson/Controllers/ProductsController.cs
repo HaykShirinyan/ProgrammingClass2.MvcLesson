@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using ProgrammingClass2.MvcLesson.Data;
 using ProgrammingClass2.MvcLesson.Models;
 using System;
@@ -31,7 +32,11 @@ namespace ProgrammingClass2.MvcLesson.Controllers
         public IActionResult Index()
         {
             // Aystex product-nere database-ic vercnum enq ev poxancum Product folder-i meji Index view-in.
-            List<Product> products = _context.Products.ToList();
+            List<Product> products = _context
+                .Products
+                // Aystex menq nshum enq, vor menq uzum enq UnitOfMeasure-neri liste miacnel mer product-neri list-in (Join)
+                .Include(product => product.UnitOfMeasure) // Include function-i hamar petq e avelacneq using Microsoft.EntityFrameworkCore amena verevum.
+                .ToList();
 
             return View(products);
         }
@@ -42,6 +47,7 @@ namespace ProgrammingClass2.MvcLesson.Controllers
         [HttpGet]
         public IActionResult Create()
         {
+            ViewBag.UnitOfMeasures = _context.UnitOfMeasures.ToList();
             return View();
         }
 
@@ -58,6 +64,9 @@ namespace ProgrammingClass2.MvcLesson.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
+            // Ete validation-i het kapvac xndirner kan, menq petq e noric UnitOfMeasures list database-ic vercnenq ev het uxarkenq.
+            ViewBag.UnitOfMeasures = _context.UnitOfMeasures.ToList();
+
             return View(product);
         }
 
@@ -69,6 +78,8 @@ namespace ProgrammingClass2.MvcLesson.Controllers
 
             if (product != null)
             {
+                // Ete gtanq mer product-e, ekeq UnitOfMeasures list-n el database-ic vercnenq
+                ViewBag.UnitOfMeasures = _context.UnitOfMeasures.ToList();
                 return View(product);
             }
 
@@ -86,6 +97,9 @@ namespace ProgrammingClass2.MvcLesson.Controllers
 
                 return RedirectToAction(nameof(Index));
             }
+
+            // Ete validation-i het kapvac xndirner kan, menq petq e noric UnitOfMeasures list database-ic vercnenq ev het uxarkenq.
+            ViewBag.UnitOfMeasures = _context.UnitOfMeasures.ToList();
 
             return View(product);
         }
