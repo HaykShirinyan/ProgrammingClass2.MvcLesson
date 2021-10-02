@@ -1,0 +1,39 @@
+﻿@model List<UnitOfMeasure>
+
+<div>
+    <a asp-controller="UnitOfMeasures" asp-action="Create" class="btn, btn-primary"> 
+        Create
+        </a>
+    <table class="table">
+        <thead>
+            <tr>
+              <th>
+                  ID
+               </th>
+                <th>
+                    Name
+                 </th>
+                <th>
+                    Description
+                </th>
+             </tr>
+          </thead>
+
+        <tbody>
+            @foreach(var unitOfMeasure in Model)
+            {
+                <tr>
+                    <td>
+                        @unitOfMeasure.Id
+                   </td>
+                    <td>
+                        @unitOfMeasure.Name
+                    </td>
+                    <td>
+                        @unitOfMeasure.Description
+                        </td>
+                 </tr>
+            }
+            </tbody>
+       </table>
+    </div>
