@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace ProgrammingClass2.MvcLesson.Controllers
 {
-    public class ProductTypesController : Controller
+    public class CurrenciesController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public ProductTypesController(ApplicationDbContext context)
+        public CurrenciesController(ApplicationDbContext context)
         {
             _context = context;
         }
@@ -20,8 +20,8 @@ namespace ProgrammingClass2.MvcLesson.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            var productType = _context.ProductTypes.ToList();
-            return View(productType);
+            var currency = _context.Currencies.ToList();
+            return View(currency);
         }
 
         [HttpGet]
@@ -31,14 +31,14 @@ namespace ProgrammingClass2.MvcLesson.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(ProductType productType)
+        public IActionResult Create(Currency currency)
         {
             if (ModelState.IsValid)
             {
-                _context.ProductTypes.Add(productType);
+                _context.Currencies.Add(currency);
                 _context.SaveChanges();
 
-                return RedirectToAction(nameof(ProductTypesController.Index));
+                return RedirectToAction(nameof(CurrenciesController.Index));
             }
 
             return BadRequest(ModelState);

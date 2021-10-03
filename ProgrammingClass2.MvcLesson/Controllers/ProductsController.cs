@@ -25,6 +25,7 @@ namespace ProgrammingClass2.MvcLesson.Controllers
                 .Products
                 .Include(product => product.UnitOfMeasure)
                 .Include(product => product.ProductType)
+                .Include(product => product.Currency)
                 .ToList();
 
             return View(products);
@@ -35,6 +36,7 @@ namespace ProgrammingClass2.MvcLesson.Controllers
         {
             ViewBag.UnitOfMeasures = _context.UnitOfMeasures.ToList();
             ViewBag.ProductTypes = _context.ProductTypes.ToList();
+            ViewBag.Currencies = _context.Currencies.ToList();
             return View();
         }
 
@@ -51,6 +53,7 @@ namespace ProgrammingClass2.MvcLesson.Controllers
 
             ViewBag.UnitOfMeasures = _context.UnitOfMeasures.ToList();
             ViewBag.ProductType = _context.ProductTypes.ToList();
+            ViewBag.Currencies = _context.Currencies.ToList();
 
             return View(product);
         }
@@ -64,6 +67,7 @@ namespace ProgrammingClass2.MvcLesson.Controllers
             {
                 ViewBag.UnitOfMeasures = _context.UnitOfMeasures.ToList();
                 ViewBag.ProductTypes = _context.ProductTypes.ToList();
+                ViewBag.Currencies = _context.Currencies.ToList();
                 return View(product);
             }
 
@@ -83,6 +87,7 @@ namespace ProgrammingClass2.MvcLesson.Controllers
 
             ViewBag.UnitOfMeasures = _context.UnitOfMeasures.ToList();
             ViewBag.ProductTypes = _context.ProductTypes.ToList();
+            ViewBag.Currencies = _context.Currencies.ToList();
 
             return View(product);
         }
