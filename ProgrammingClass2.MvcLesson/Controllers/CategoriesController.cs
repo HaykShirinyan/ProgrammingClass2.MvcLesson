@@ -10,7 +10,7 @@ namespace ProgrammingClass2.MvcLesson.Controllers
 {
     public class CategoriesController : Controller
     {
-        private ApplicationDbContext _context; 
+        private ApplicationDbContext _context;
 
         public CategoriesController(ApplicationDbContext context)
         {
@@ -20,7 +20,6 @@ namespace ProgrammingClass2.MvcLesson.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-
             List<Category> categories = _context.Categories.ToList();
 
             return View(categories);
@@ -58,7 +57,7 @@ namespace ProgrammingClass2.MvcLesson.Controllers
 
             return NotFound();
         }
-
+        
         [HttpPost]
         public IActionResult Edit(Category category)
         {

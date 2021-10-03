@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations;
 
 namespace ProgrammingClass2.MvcLesson.Models
 {
     public class Category
     {
         [Key]
-        public int Id { get; set; }
+        public int ID { get; set; }
 
         [Required]
         [StringLength(50)]
@@ -17,6 +17,5 @@ namespace ProgrammingClass2.MvcLesson.Models
 
         [StringLength(300)]
         public string Description { get; set; }
-
     }
 }
