@@ -36,7 +36,7 @@ namespace ProgrammingClass2.MvcLesson.Controllers
                 .Products
                 // Aystex menq nshum enq, vor menq uzum enq UnitOfMeasure-neri liste miacnel mer product-neri list-in (Join)
                 .Include(product => product.UnitOfMeasure) // Include function-i hamar petq e avelacneq using Microsoft.EntityFrameworkCore amena verevum.
-                .ToList();
+                .ToList();  
 
             return View(products);
         }
@@ -48,6 +48,7 @@ namespace ProgrammingClass2.MvcLesson.Controllers
         public IActionResult Create()
         {
             ViewBag.UnitOfMeasures = _context.UnitOfMeasures.ToList();
+            ViewBag.ProductType = _context.ProductTypes.ToList();
             return View();
         }
 
@@ -66,6 +67,7 @@ namespace ProgrammingClass2.MvcLesson.Controllers
 
             // Ete validation-i het kapvac xndirner kan, menq petq e noric UnitOfMeasures list database-ic vercnenq ev het uxarkenq.
             ViewBag.UnitOfMeasures = _context.UnitOfMeasures.ToList();
+            ViewBag.ProductType = _context.ProductTypes.ToList();
 
             return View(product);
         }
@@ -80,6 +82,7 @@ namespace ProgrammingClass2.MvcLesson.Controllers
             {
                 // Ete gtanq mer product-e, ekeq UnitOfMeasures list-n el database-ic vercnenq
                 ViewBag.UnitOfMeasures = _context.UnitOfMeasures.ToList();
+                ViewBag.ProductTypes = _context.ProductTypes.ToList();
                 return View(product);
             }
 
@@ -100,6 +103,7 @@ namespace ProgrammingClass2.MvcLesson.Controllers
 
             // Ete validation-i het kapvac xndirner kan, menq petq e noric UnitOfMeasures list database-ic vercnenq ev het uxarkenq.
             ViewBag.UnitOfMeasures = _context.UnitOfMeasures.ToList();
+            ViewBag.ProductTypes = _context.ProductTypes.ToList();
 
             return View(product);
         }

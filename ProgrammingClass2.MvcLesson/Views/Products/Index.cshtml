@@ -27,6 +27,9 @@
         <th>
           Unit of Measure
         </th>
+          <th>
+              Product Type
+           </th>
         <th>
           Quantity
         </th>
@@ -57,6 +60,9 @@
             @* UnitOfMeasure?.Name nshanakum e cuyc tur UnitOfMeasure property-i Name-e ete UnitOfMeasure null che *@
             @product.UnitOfMeasure?.Name
           </td>
+            <td>
+                @product.ProductType?.Name
+                </td>
           <td>
             @product.Quantity
           </td>
