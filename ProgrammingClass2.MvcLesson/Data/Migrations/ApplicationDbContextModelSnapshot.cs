@@ -272,6 +272,27 @@ namespace ProgrammingClass2.MvcLesson.Data.Migrations
                     b.ToTable("Products");
                 });
 
+            modelBuilder.Entity("ProgrammingClass2.MvcLesson.Models.ProductType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(300)
+                        .HasColumnType("nvarchar(300)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ProductTypes");
+                });
+
             modelBuilder.Entity("ProgrammingClass2.MvcLesson.Models.UnitOfMeasure", b =>
                 {
                     b.Property<int>("Id")

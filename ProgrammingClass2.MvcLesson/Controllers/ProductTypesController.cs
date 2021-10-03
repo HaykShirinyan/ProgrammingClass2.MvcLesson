@@ -8,11 +8,13 @@ using System.Threading.Tasks;
 
 namespace ProgrammingClass2.MvcLesson.Controllers
 {
-    public class UnitOfMeasuresController : Controller
+    public class ProductTypesController : Controller
     {
+
         private readonly ApplicationDbContext _context;
 
-        public UnitOfMeasuresController(ApplicationDbContext context)
+
+        public ProductTypesController(ApplicationDbContext context)
         {
             _context = context;
         }
@@ -20,28 +22,29 @@ namespace ProgrammingClass2.MvcLesson.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            var unitOfMeasures = _context.UnitOfMeasures.ToList();
-            return View(unitOfMeasures);
+            var productTypes = _context.ProductTypes.ToList();
+            return View(productTypes);
         }
 
         [HttpGet]
         public IActionResult Create()
         {
             return View();
-        }       
+        }
 
         [HttpPost]
-        public IActionResult Create(UnitOfMeasure unitOfMeasure)
+        public IActionResult Create(ProductType productType)
         {
             if (ModelState.IsValid)
             {
-                _context.UnitOfMeasures.Add(unitOfMeasure);
+                _context.ProductTypes.Add(productType);
                 _context.SaveChanges();
 
-                return RedirectToAction(nameof(UnitOfMeasuresController.Index));
+                return RedirectToAction(nameof(ProductsController.Index));
             }
 
-            return BadRequest(ModelState);
+            return BadRequest();
         }
+
     }
 }

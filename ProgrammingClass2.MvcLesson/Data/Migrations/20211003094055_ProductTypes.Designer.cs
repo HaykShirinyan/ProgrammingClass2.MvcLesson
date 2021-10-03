@@ -10,8 +10,8 @@ using ProgrammingClass2.MvcLesson.Data;
 namespace ProgrammingClass2.MvcLesson.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210926181317_UnitOfMeasures")]
-    partial class UnitOfMeasures
+    [Migration("20211003094055_ProductTypes")]
+    partial class ProductTypes
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -221,6 +221,27 @@ namespace ProgrammingClass2.MvcLesson.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("ProgrammingClass2.MvcLesson.Models.Category", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(300)
+                        .HasColumnType("nvarchar(300)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Categories");
+                });
+
             modelBuilder.Entity("ProgrammingClass2.MvcLesson.Models.Product", b =>
                 {
                     b.Property<int>("Id")
@@ -240,12 +261,38 @@ namespace ProgrammingClass2.MvcLesson.Data.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
+                    b.Property<int?>("UnitOfMeasureId")
+                        .HasColumnType("int");
+
                     b.Property<decimal>("UnitPrice")
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("UnitOfMeasureId");
+
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("ProgrammingClass2.MvcLesson.Models.ProductType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(300)
+                        .HasColumnType("nvarchar(300)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ProductTypes");
                 });
 
             modelBuilder.Entity("ProgrammingClass2.MvcLesson.Models.UnitOfMeasure", b =>
@@ -318,6 +365,15 @@ namespace ProgrammingClass2.MvcLesson.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("ProgrammingClass2.MvcLesson.Models.Product", b =>
+                {
+                    b.HasOne("ProgrammingClass2.MvcLesson.Models.UnitOfMeasure", "UnitOfMeasure")
+                        .WithMany()
+                        .HasForeignKey("UnitOfMeasureId");
+
+                    b.Navigation("UnitOfMeasure");
                 });
 #pragma warning restore 612, 618
         }
