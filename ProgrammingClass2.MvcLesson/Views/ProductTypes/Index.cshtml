@@ -1,0 +1,41 @@
+﻿@model List<ProductType>
+
+<div>
+    <a asp-controller="ProductTypes" 
+       asp-action="Create"
+       class="btn btn-primary">
+        Create
+    </a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Description
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var productType in Model)
+            {
+                <tr>
+                    <td>
+                        @productType.Id
+                    </td>
+                    <td>
+                        @productType.Name
+                    </td>
+                    <td>
+                        @productType.Description
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
