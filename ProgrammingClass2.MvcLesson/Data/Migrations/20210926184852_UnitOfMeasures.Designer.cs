@@ -10,7 +10,7 @@ using ProgrammingClass2.MvcLesson.Data;
 namespace ProgrammingClass2.MvcLesson.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211002135903_UnitOfMeasures")]
+    [Migration("20210926184852_UnitOfMeasures")]
     partial class UnitOfMeasures
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
