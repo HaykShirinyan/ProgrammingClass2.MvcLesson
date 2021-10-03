@@ -74,5 +74,56 @@ namespace ProgrammingClass2.MvcLesson.Controllers
 
             return NotFound();
         }
+
+        // /products/edit
+        [HttpPost]
+        public IActionResult Edit(Product product)
+        {
+            if (this.ModelState.IsValid)
+            {
+                _context.Products.Update(product);
+                _context.SaveChanges();
+
+                return RedirectToAction(nameof(Index));
+            }
+
+            return View(product);
+        }
+
+        // /products/delete/2
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            var product = _context.Products.Find(id);
+
+            if (product != null)
+            {
+                return View(product);
+            }
+
+            return NotFound();
+        }
+
+        // Qani vor C#-i mej class-e chi karox 2 nuyn anunov ev parametrerov funkcianer unenal,
+        // menq stipvac mere HTTP POST Delete action-i funkciayi anune drel enq DeleteConfirmed.
+        // Bayc [ActionName("Delete")] attribute-i mijocov menq nshum enq, vor action-i anune amen depqum Delete e.
+
+        // /products/delete/2
+        [HttpPost]
+        [ActionName("Delete")]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            var product = _context.Products.Find(id);
+
+            if (product != null)
+            {
+                _context.Products.Remove(product);
+                _context.SaveChanges();
+
+                return RedirectToAction(nameof(Index));
+            }
+
+            return NotFound();
+        }
     }
 }
