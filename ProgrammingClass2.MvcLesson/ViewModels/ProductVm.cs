@@ -9,6 +9,8 @@ namespace ProgrammingClass2.MvcLesson.ViewModels
     public class ProductVm
     {
         public Product Product { get; set; }
+
+        public List<ProductType> ProductTypes { get; set; }
         public List<UnitOfMeasure> UnitOfMeasures { get; set; }
     }
 }

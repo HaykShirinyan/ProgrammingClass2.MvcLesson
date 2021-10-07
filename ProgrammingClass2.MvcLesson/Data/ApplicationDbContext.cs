@@ -28,6 +28,8 @@ namespace ProgrammingClass2.MvcLesson.Data
         public DbSet<Product> Products { get; set; }
         public DbSet<UnitOfMeasure> UnitOfMeasures { get; set; }
 
+        public DbSet<ProductType> ProductTypes { get; set; }
+
         public DbSet<Category> Categories { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)

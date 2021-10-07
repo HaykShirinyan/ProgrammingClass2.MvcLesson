@@ -48,10 +48,10 @@
     </div>
 
       <div class="form-group">
-          <label asp-for="ProductTypeId">
+          <label asp-for="Product.ProductTypeId">
               Product Type
               </label>
-          <select asp-for="ProductTypeId" class="form-control">
+          <select asp-for="Product.ProductTypeId" class="form-control">
               <option value=""></option>
 
               @foreach(var prdt in ViewBag.ProductTypes as List<ProductType>)
