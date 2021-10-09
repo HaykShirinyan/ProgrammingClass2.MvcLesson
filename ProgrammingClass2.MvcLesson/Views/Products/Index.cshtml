@@ -22,6 +22,9 @@
           Name
         </th>
         <th>
+          Product Type
+        </th>
+        <th>
           Description
         </th>
         <th>
@@ -32,6 +35,9 @@
         </th>
         <th>
           Unit Price
+        </th>
+        <th>
+          Currency
         </th>
         <th>
           Actions
@@ -51,6 +57,9 @@
             @product.Name
           </td>
           <td>
+            @product.ProductType?.Name
+          </td>
+          <td>
             @product.Description
           </td>
           <td>
@@ -62,6 +71,9 @@
           </td>
           <td>
             @product.UnitPrice
+          </td>
+          <td>
+            @product.Currency?.Name
           </td>
           <td>
             <a asp-controller="Products"

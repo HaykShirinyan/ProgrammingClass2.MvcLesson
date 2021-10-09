@@ -36,5 +36,11 @@ namespace ProgrammingClass2.MvcLesson.Models
         // int? nshanakum a ays int property-n hnaravor e null nshanakel. Aranc harcakani int tesaki popoxakannerin hnaravor che null nshanakel.
         public int? UnitOfMeasureId { get; set; }
         public UnitOfMeasure UnitOfMeasure { get; set; }
+
+        public int? CurrencyId { get; set; }
+        public Currency Currency { get; set; }
+
+        public int? ProductTypeId { get; set; }
+        public ProductType ProductType { get; set; }
     }
 }

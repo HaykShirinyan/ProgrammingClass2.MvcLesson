@@ -10,5 +10,7 @@ namespace ProgrammingClass2.MvcLesson.ViewModels
     {
         public Product Product { get; set; }
         public List<UnitOfMeasure> UnitOfMeasures { get; set; }
+        public List<Currency> Currencies { get; set; }
+        public List<ProductType> ProductTypes { get; set; }
     }
 }
