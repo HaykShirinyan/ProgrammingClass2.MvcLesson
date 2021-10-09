@@ -1,0 +1,58 @@
+﻿@model List<Currency>
+
+<div>
+    <a asp-controller="Currencies" asp-action="Create" class="btn btn-primary mb-3">
+        Create New
+    </a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Description
+                </th>
+                <th>
+                    Actions
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var currency in Model)
+            {
+                <tr>
+                    <td>
+                        @currency.Id
+                    </td>
+                    <td>
+                        @currency.Name
+                    </td>
+                    <td>
+                        @currency.Description
+                    </td>
+                    <td>
+                        <a asp-controller="Currencies"
+                           asp-action="Edit"
+                           asp-route-id="@currency.Id"
+                           class="btn btn-secondary">
+                            Edit
+                        </a>
+
+                        <a asp-controller="Currencies"
+                           asp-action="Delete"
+                           asp-route-id="@currency.Id"
+                           class="btn btn-secondary">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

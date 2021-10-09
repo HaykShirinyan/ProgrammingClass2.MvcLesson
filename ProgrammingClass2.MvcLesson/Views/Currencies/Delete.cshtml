@@ -1,0 +1,44 @@
+﻿@model Currency
+
+<div>
+    <dl>
+        <dt>
+            ID
+        </dt>
+        <dd>
+            @Model.Id
+        </dd>
+
+        <dt>
+            Name
+        </dt>
+        <dd>
+            @Model.Name
+        </dd>
+
+        <dt>
+            Description
+        </dt>
+        <dd>
+            @Model.Description
+        </dd>
+    </dl>
+
+    <p>
+        Are you sure you want to delete this currency?
+    </p>
+
+    <form asp-controller="Currencies" asp-action="Delete" asp-route-id="@Model.Id">
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">
+                Yes
+            </button>
+
+            <a asp-controller="Currencies"
+               asp-action="Index"
+               class="btn btn-secondary">
+                No
+            </a>
+        </div>
+    </form>
+</div>
