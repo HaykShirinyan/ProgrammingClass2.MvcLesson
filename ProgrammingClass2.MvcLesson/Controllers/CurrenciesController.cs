@@ -1,20 +1,20 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ProgrammingClass2.MvcLesson.Data;
-using ProgrammingClass2.MvcLesson.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ProgrammingClass2.MvcLesson.Models;
+using ProgrammingClass2.MvcLesson.Data;
+
+
 
 namespace ProgrammingClass2.MvcLesson.Controllers
 {
-    public class ProductTypesController : Controller
+    public class CurrenciesController : Controller
     {
-
         private readonly ApplicationDbContext _context;
 
-
-        public ProductTypesController(ApplicationDbContext context)
+        public CurrenciesController(ApplicationDbContext context)
         {
             _context = context;
         }
@@ -22,8 +22,8 @@ namespace ProgrammingClass2.MvcLesson.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            var productTypes = _context.ProductTypes.ToList();
-            return View(productTypes);
+            var currencies = _context.Currencies.ToList();
+            return View(currencies);
         }
 
         [HttpGet]
@@ -33,18 +33,18 @@ namespace ProgrammingClass2.MvcLesson.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(ProductType productType)
+        public IActionResult Create(Currency currency)
         {
             if (ModelState.IsValid)
             {
-                _context.ProductTypes.Add(productType);
+                _context.Currencies.Add(currency);
                 _context.SaveChanges();
 
-                return RedirectToAction(nameof(ProductTypesController.Index));
+                return RedirectToAction(nameof(CurrenciesController.Index));
             }
 
-            return BadRequest();
+            return BadRequest(ModelState);
         }
-
     }
 }
+

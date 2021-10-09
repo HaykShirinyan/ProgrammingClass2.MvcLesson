@@ -8,55 +8,84 @@
 <div>
   <!-- Bolor text box-ere piti partadir form element-i mej linen -->
   <!-- Aystex piti nshenq, te form-e submit aneluc controller-i vor action-e piti kanchi -->
-  <form asp-controller="Products" asp-action="Create">
-    <div class="form-group">
-      <label asp-for="Product.Name">
-        Name
-      </label>
-      <input asp-for="Product.Name" class="form-control" />
-      <span asp-validation-for="Product.Name" class="text-danger"></span>
-    </div>
+    <form asp-controller="Products" asp-action="Create">
+        <div class="form-group">
+            <label asp-for="Product.Name">
+                Name
+            </label>
+            <input asp-for="Product.Name" class="form-control" />
+            <span asp-validation-for="Product.Name" class="text-danger"></span>
+        </div>
 
-    <div class="form-group">
-      <label asp-for="Product.Description">
-        Description
-      </label>
-      <input asp-for="Product.Description" class="form-control" />
-      <span asp-validation-for="Product.Description" class="text-danger"></span>
-    </div>
+        <div class="form-group">
+            <label asp-for="Product.Description">
+                Description
+            </label>
+            <input asp-for="Product.Description" class="form-control" />
+            <span asp-validation-for="Product.Description" class="text-danger"></span>
+        </div>
 
-    <div class="form-group">
-      <label asp-for="Product.UnitOfMeasureId">
-        Unit of Measure
-      </label>
-      <select asp-for="Product.UnitOfMeasureId" class="form-control">
-        <option value=""></option>
+        <div class="form-group">
+            <label asp-for="Product.UnitOfMeasureId">
+                Unit of Measure
+            </label>
+            <select asp-for="Product.UnitOfMeasureId" class="form-control">
+                <option value=""></option>
 
-        @foreach (var uom in Model.UnitOfMeasures)
-        { 
-          <option value="@uom.Id">@uom.Name</option>
-        }
-      </select>
-    </div>
+                @foreach (var uom in Model.UnitOfMeasures)
+                {
+                    <option value="@uom.Id">@uom.Name</option>
+                }
+            </select>
+        </div>
 
-    <div class="form-group">
-      <label asp-for="Product.Quantity">
-        Quantity
-      </label>
-      <input asp-for="Product.Quantity" class="form-control" />
-    </div>
 
-    <div class="form-group">
-      <label asp-for="Product.UnitPrice">
-        Unit Price
-      </label>
-      <input asp-for="Product.UnitPrice" class="form-control" />
-    </div>
+        <div class="form-group">
+            <label asp-for="Product.ProductTypeId">
+                Product Type
+            </label>
+            <select asp-for="Product.ProductTypeId" class="form-control">
+                <option value=""></option>
 
-<div class="text-center">
-    <button type="submit" class="btn btn-primary">
-        Create
-    </button>
-</div>
-  </form>
+                @foreach (var prdt in Model.ProductTypes)
+                {
+                    <option value="@prdt.Id">@prdt.Name</option>
+                }
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Product.CurrencyId">
+                Product Type
+            </label>
+            <select asp-for="Product.CurrencyId" class="form-control">
+                <option value=""></option>
+
+                @foreach (var crncy in Model.Currencies)
+                {
+                    <option value="@crncy.Id">@crncy.Name</option>
+                }
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Product.Quantity">
+                Quantity
+            </label>
+            <input asp-for="Product.Quantity" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Product.UnitPrice">
+                Unit Price
+            </label>
+            <input asp-for="Product.UnitPrice" class="form-control" />
+        </div>
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">
+                Create
+            </button>
+        </div>
+    </form>
 </div>

@@ -37,10 +37,13 @@ namespace ProgrammingClass2.MvcLesson.Controllers
                 .Products
                 // Aystex menq nshum enq, vor menq uzum enq UnitOfMeasure-neri liste miacnel mer product-neri list-in (Join)
                 .Include(product => product.UnitOfMeasure) // Include function-i hamar petq e avelacneq using Microsoft.EntityFrameworkCore amena verevum.
-                .ToList();  
-
+                .ToList();
+              
             return View(products);
         }
+
+
+        [HttpGet]
 
         // 9rd qaylne e sarqel Create HttpGet action-e, vore parzapes Create view-n kveradadzni.
 
@@ -50,7 +53,9 @@ namespace ProgrammingClass2.MvcLesson.Controllers
         {
             var createViewModel = new ProductVm
             {
-                UnitOfMeasures = _context.UnitOfMeasures.ToList()
+                UnitOfMeasures = _context.UnitOfMeasures.ToList(),
+                ProductTypes = _context.ProductTypes.ToList(),
+                Currencies = _context.Currencies.ToList()
             };
 
             return View(createViewModel);
@@ -70,7 +75,9 @@ namespace ProgrammingClass2.MvcLesson.Controllers
             }
 
             // Ete validation-i het kapvac xndirner kan, menq petq e noric UnitOfMeasures list database-ic vercnenq ev het uxarkenq.
-            ViewBag.UnitOfMeasures = _context.UnitOfMeasures.ToList();
+            productVm.UnitOfMeasures = _context.UnitOfMeasures.ToList();
+            productVm.ProductTypes = _context.ProductTypes.ToList();
+            productVm.Currencies = _context.Currencies.ToList();
 
             return View(productVm);
         }
@@ -84,12 +91,20 @@ namespace ProgrammingClass2.MvcLesson.Controllers
             if (product != null)
             {
                 // Ete gtanq mer product-e, ekeq UnitOfMeasures list-n el database-ic vercnenq
-                ViewBag.UnitOfMeasures = _context.UnitOfMeasures.ToList();
-                return View(product);
+                var productVm = new ProductVm
+                {
+                    Product = product,
+                    UnitOfMeasures = _context.UnitOfMeasures.ToList(),
+                    ProductTypes = _context.ProductTypes.ToList(),
+                    Currencies = _context.Currencies.ToList()
+                };
+                
+            return View(productVm);
             }
 
             return NotFound();
         }
+        
 
         // /products/edit
         [HttpPost]
@@ -104,7 +119,9 @@ namespace ProgrammingClass2.MvcLesson.Controllers
             }
 
             // Ete validation-i het kapvac xndirner kan, menq petq e noric UnitOfMeasures list database-ic vercnenq ev het uxarkenq.
-            ViewBag.UnitOfMeasures = _context.UnitOfMeasures.ToList();
+            productVm.UnitOfMeasures = _context.UnitOfMeasures.ToList();
+            productVm.ProductTypes = _context.ProductTypes.ToList();
+            productVm.Currencies = _context.Currencies.ToList();
 
             return View(productVm);
         }
