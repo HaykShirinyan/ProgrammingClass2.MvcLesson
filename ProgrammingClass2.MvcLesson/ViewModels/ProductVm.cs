@@ -15,5 +15,7 @@ namespace ProgrammingClass2.MvcLesson.ViewModels
         public List<UnitOfMeasure> UnitOfMeasures { get; set; }
 
         public List<Currency> Currencies { get; set; }
+
+        public List<Color> Colors { get; set; }
     }
 }

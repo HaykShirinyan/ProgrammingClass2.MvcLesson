@@ -36,10 +36,11 @@ namespace ProgrammingClass2.MvcLesson.Controllers
             List<Product> products = _context
                 .Products
                 // Aystex menq nshum enq, vor menq uzum enq UnitOfMeasure-neri liste miacnel mer product-neri list-in (Join)
-                .Include(product => product.UnitOfMeasure) // Include function-i hamar petq e avelacneq using Microsoft.EntityFrameworkCore amena verevum.
+                .Include(product => product.UnitOfMeasure)
+                .Include(product => product.ProductType)
+                .Include(product => product.Currency)// Include function-i hamar petq e avelacneq using Microsoft.EntityFrameworkCore amena verevum.
                 .ToList();
-              
-            return View(products);
+            return View(products);            
         }
 
 
