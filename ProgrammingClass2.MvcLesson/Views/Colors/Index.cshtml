@@ -1,0 +1,58 @@
+﻿@model List<Color>
+
+<div class="text-center">
+  <a asp-controller="Colors" asp-action="Create" class="btn btn-primary mb-3">
+    Create New
+  </a>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>
+          ID
+        </th>
+        <th>
+          Name
+        </th>
+        <th>
+          Description
+        </th>
+        <th>
+          Actions
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      @foreach (var color in Model)
+       {
+        <tr>
+          <td>
+            @color.Id
+          </td>
+          <td>
+            @color.Name
+          </td>
+          <td>
+            @color.Description
+          </td>
+          <td>
+            <a asp-controller="Colors"
+               asp-action="Edit"
+               asp-route-id="@color.Id"
+               class="btn btn-secondary">
+              Edit
+            </a>
+
+            <a asp-controller="Colors"
+               asp-action="Delete"
+               asp-route-id="@color.Id"
+               class="btn btn-secondary">
+              Delete
+            </a>
+          </td>
+        </tr>
+       }
+    </tbody>
+  </table>
+</div>

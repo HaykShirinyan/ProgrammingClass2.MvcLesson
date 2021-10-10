@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using ProgrammingClass2.MvcLesson.Data;
 using ProgrammingClass2.MvcLesson.Models;
+using ProgrammingClass2.MvcLesson.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,48 +30,55 @@ namespace ProgrammingClass2.MvcLesson.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            return View();
+            var createViewModel = new ColorVm();
+
+            return View(createViewModel);
         }
 
         [HttpPost]
-        public IActionResult Create(Color color)
+        public IActionResult Create(ColorVm colorVm)
         {
             if (this.ModelState.IsValid)
             {
-                _context.Colors.Add(color);
+                _context.Colors.Add(colorVm.Color);
                 _context.SaveChanges();
 
                 return RedirectToAction(nameof(Index));
             }
 
-            return View(color);
+            return View(colorVm);
         }
 
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            var category = _context.Categories.Find(id);
+            var color = _context.Colors.Find(id);
 
-            if (category != null)
+            if (color != null)
             {
-                return View(category);
+                var colorVm = new ColorVm
+                {
+                    Color = color,
+                };
+
+                return View(colorVm);
             }
 
             return NotFound();
         }
 
         [HttpPost]
-        public IActionResult Edit(Category category)
+        public IActionResult Edit(ColorVm colorVm)
         {
             if (this.ModelState.IsValid)
             {
-                _context.Categories.Update(category);
+                _context.Colors.Update(colorVm.Color);
                 _context.SaveChanges();
 
                 return RedirectToAction(nameof(Index));
             }
 
-            return View(category);
+            return View(colorVm);
         }
 
         [HttpGet]
