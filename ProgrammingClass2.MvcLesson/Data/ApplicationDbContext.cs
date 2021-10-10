@@ -40,6 +40,8 @@ namespace ProgrammingClass2.MvcLesson.Data
         {
             base.OnModelCreating(builder);
 
+            // Ayspes nshum enq vor ProductCategory table-i primary key-n baxkacac e linelu ProductId ev CategoryId syuneric.
+            // Sa shat karevor e many-to-many-relationship jamanak.
             builder.Entity<ProductCategory>()
                 // model => new { model.ProductId, model.CategoryId } kochvum e lambda function
                 .HasKey(model => new { model.ProductId, model.CategoryId });
