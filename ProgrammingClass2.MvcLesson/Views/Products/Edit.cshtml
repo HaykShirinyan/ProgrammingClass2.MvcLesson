@@ -68,20 +68,6 @@
         </div>
 
         <div class="form-group">
-            <label asp-for="Product.ColorId">
-                Color
-            </label>
-            <select asp-for="Product.ColorId" class="form-control">
-                <option value=""></option>
-
-                @foreach (var color in Model.UnitOfMeasures)
-                {
-                    <option value="@color.Id">@color.Name</option>
-                }
-            </select>
-        </div>
-
-        <div class="form-group">
             <label asp-for="Product.Quantity">
                 Quantity
             </label>

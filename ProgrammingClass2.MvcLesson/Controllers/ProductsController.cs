@@ -27,7 +27,6 @@ namespace ProgrammingClass2.MvcLesson.Controllers
                 .Include(product => product.UnitOfMeasure)
                 .Include(product => product.ProductType)
                 .Include(product => product.Currency)
-                .Include(product => product.Color)
                 .ToList();
 
             return View(products);
@@ -41,7 +40,6 @@ namespace ProgrammingClass2.MvcLesson.Controllers
                 UnitOfMeasures = _context.UnitOfMeasures.ToList(),
                 ProductTypes = _context.ProductTypes.ToList(),
                 Currencies = _context.Currencies.ToList(),
-                Colors = _context.Colors.ToList()
             };
 
             return View(createViewModel);
@@ -61,7 +59,6 @@ namespace ProgrammingClass2.MvcLesson.Controllers
             productVm.UnitOfMeasures = _context.UnitOfMeasures.ToList();
             productVm.ProductTypes = _context.ProductTypes.ToList();
             productVm.Currencies = _context.Currencies.ToList();
-            productVm.Colors = _context.Colors.ToList();
 
             return View(productVm);
         }
@@ -79,7 +76,6 @@ namespace ProgrammingClass2.MvcLesson.Controllers
                     UnitOfMeasures = _context.UnitOfMeasures.ToList(),
                     ProductTypes = _context.ProductTypes.ToList(),
                     Currencies = _context.Currencies.ToList(),
-                    Colors = _context.Colors.ToList()
                 };
 
                 return View(productVm);
@@ -102,7 +98,6 @@ namespace ProgrammingClass2.MvcLesson.Controllers
             productVm.UnitOfMeasures = _context.UnitOfMeasures.ToList();
             productVm.ProductTypes = _context.ProductTypes.ToList();
             productVm.Currencies = _context.Currencies.ToList();
-            productVm.Colors = _context.Colors.ToList();
 
             return View(productVm);
         }
