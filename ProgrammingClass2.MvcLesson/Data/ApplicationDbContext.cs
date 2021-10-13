@@ -35,10 +35,20 @@ namespace ProgrammingClass2.MvcLesson.Data
         public DbSet<ProductType> ProductTypes { get; set; }
 
         public DbSet<Category> Categories { get; set; }
+        public DbSet<ProductCategory> ProductCategories { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
+        }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+
+            builder.Entity<ProductCategory>()
+                // model => new { model.ProductId, model.CategoryId } kochvum e lambda function
+                .HasKey(model => new { model.ProductId, model.CategoryId });
         }
     }
 }
