@@ -89,18 +89,26 @@
             <input asp-for="Product.UnitPrice" class="form-control" />
         </div>
 
-    <div>
-      <a asp-controller="ProductCategories"
-         asp-action="Index"
-         asp-route-productId="@Model.Product.Id">
-        Categories
-      </a>
-    </div>
+        <div>
+            <a asp-controller="ProductCategories"
+               asp-action="Index"
+               asp-route-productId="@Model.Product.Id">
+                Categories
+            </a>
+        </div>
 
-    <div class="text-center">
-      <button type="submit" class="btn btn-primary">
-        Update
-      </button>
-    </div>
-  </form>
+        <div>
+            <a asp-controller="ProductColors"
+               asp-action="Index"
+               asp-route-productId="@Model.Product.Id">
+                Colors
+            </a>
+        </div>
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">
+                Update
+            </button>
+        </div>
+    </form>
 </div>

@@ -10,8 +10,8 @@ using ProgrammingClass2.MvcLesson.Data;
 namespace ProgrammingClass2.MvcLesson.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211010171036_Colors")]
-    partial class Colors
+    [Migration("20211016071406_ProductColors")]
+    partial class ProductColors
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -244,7 +244,7 @@ namespace ProgrammingClass2.MvcLesson.Data.Migrations
 
             modelBuilder.Entity("ProgrammingClass2.MvcLesson.Models.Color", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -258,7 +258,7 @@ namespace ProgrammingClass2.MvcLesson.Data.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.HasKey("ID");
+                    b.HasKey("Id");
 
                     b.ToTable("Colors");
                 });
@@ -324,6 +324,36 @@ namespace ProgrammingClass2.MvcLesson.Data.Migrations
                     b.HasIndex("UnitOfMeasureId");
 
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("ProgrammingClass2.MvcLesson.Models.ProductCategory", b =>
+                {
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ProductId", "CategoryId");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("ProductCategories");
+                });
+
+            modelBuilder.Entity("ProgrammingClass2.MvcLesson.Models.ProductColor", b =>
+                {
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ColorId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ProductId", "ColorId");
+
+                    b.HasIndex("ColorId");
+
+                    b.ToTable("ProductColors");
                 });
 
             modelBuilder.Entity("ProgrammingClass2.MvcLesson.Models.ProductType", b =>
@@ -438,6 +468,44 @@ namespace ProgrammingClass2.MvcLesson.Data.Migrations
                     b.Navigation("ProductType");
 
                     b.Navigation("UnitOfMeasure");
+                });
+
+            modelBuilder.Entity("ProgrammingClass2.MvcLesson.Models.ProductCategory", b =>
+                {
+                    b.HasOne("ProgrammingClass2.MvcLesson.Models.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ProgrammingClass2.MvcLesson.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+
+                    b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("ProgrammingClass2.MvcLesson.Models.ProductColor", b =>
+                {
+                    b.HasOne("ProgrammingClass2.MvcLesson.Models.Color", "Color")
+                        .WithMany()
+                        .HasForeignKey("ColorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ProgrammingClass2.MvcLesson.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Color");
+
+                    b.Navigation("Product");
                 });
 #pragma warning restore 612, 618
         }
