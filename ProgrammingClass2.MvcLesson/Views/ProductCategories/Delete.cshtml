@@ -4,7 +4,7 @@
   <form asp-controller="ProductCategories"
         asp-action="Delete"
         asp-route-productId="@Model.Product.Id"
-        asp-route-categoryId="@Model.Category.ID">
+        asp-route-categoryId="@Model.Category.Id">
     <dl>
       <dt>
         Product ID
@@ -24,7 +24,7 @@
         Category ID
       </dt>
       <dd>
-        @Model.Category.ID
+        @Model.Category.Id
       </dd>
 
       <dt>

@@ -1,0 +1,59 @@
+﻿@model ProductColorVm
+
+<div>
+    <h2>
+        @Model.Product.Name Colors
+    </h2>
+
+    <a asp-controller="ProductColors"
+       asp-action="Create"
+       asp-route-productId="@Model.Product.Id"
+       class="btn btn-primary mb-3">
+        Create
+    </a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Description
+                </th>
+                <th>
+                    Actions
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var productColor in Model.ProductColors)
+            {
+                <tr>
+                    <td>
+                        @productColor.Color.Id
+                    </td>
+                    <td>
+                        @productColor.Color.Name
+                    </td>
+                    <td>
+                        @productColor.Color.Description
+                    </td>
+                    <td>
+                        <a asp-controller="ProductColors"
+                           asp-action="Delete"
+                           asp-route-productId="@Model.Product.Id"
+                           asp-route-colorId="@productColor.Color.Id"
+                           class="btn btn-secondary">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+             }
+        </tbody>
+    </table>
+</div>

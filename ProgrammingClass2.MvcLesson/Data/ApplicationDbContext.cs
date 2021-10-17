@@ -31,10 +31,8 @@ namespace ProgrammingClass2.MvcLesson.Data
         public DbSet<Color> Colors { get; set; }
         public DbSet<ProductType> ProductTypes { get; set; }
         public DbSet<Currency> Currencies { get; set; }
-
-        public DbSet<Category> Categories { get; set; }
         public DbSet<ProductCategory> ProductCategories { get; set; }
-
+        public DbSet<ProductColor> ProductColors { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
@@ -49,6 +47,12 @@ namespace ProgrammingClass2.MvcLesson.Data
             builder.Entity<ProductCategory>()
                 // model => new { model.ProductId, model.CategoryId } kochvum e lambda function
                 .HasKey(model => new { model.ProductId, model.CategoryId });
+
+
+            builder.Entity<ProductColor>()
+           .HasKey(model => new { model.ProductId, model.ColorId });
+
+
         }
     }
 }

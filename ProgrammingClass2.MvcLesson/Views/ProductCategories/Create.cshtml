@@ -23,7 +23,7 @@
       <select asp-for="SelectedCategoryId" class="form-control">
         @foreach (var category in Model.Categories)
         { 
-          <option value="@category.ID">
+          <option value="@category.Id">
             @category.Name
           </option>
         }
