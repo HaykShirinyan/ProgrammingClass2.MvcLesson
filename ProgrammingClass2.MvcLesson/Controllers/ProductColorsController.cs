@@ -27,14 +27,11 @@ namespace ProgrammingClass2.MvcLesson.Controllers
 
             if (product != null)
             {
-
-
                 var productColors = _context
                     .ProductColors
                     .Include(model => model.Color)
                     .Where(model => model.ProductId == productId)
                     .ToList();
-
 
                 var vm = new ProductColorVm
                 {
@@ -65,11 +62,11 @@ namespace ProgrammingClass2.MvcLesson.Controllers
 
                 return View(vm);
             }
+
             return NotFound();
         } 
 
         [HttpPost]
-
         public IActionResult Create(CreateProductColorVm vm)
         {
             if (ModelState.IsValid)
@@ -86,11 +83,11 @@ namespace ProgrammingClass2.MvcLesson.Controllers
             }
 
             vm.Colors = _context.Colors.ToList();
+
             return View(vm);
         }
 
         [HttpGet]
-
         public IActionResult Delete (int productId, int colorId)
         {
             var productColor = _context
@@ -106,11 +103,11 @@ namespace ProgrammingClass2.MvcLesson.Controllers
 
             return NotFound();
         }
+
         [HttpPost]
         [ActionName("Delete")]
         public IActionResult DeleteConfirmed(int productId, int colorId)
         {
-
             var productColor = _context
                 .ProductColors
                 .SingleOrDefault(productColor => productColor.ProductId == productId && productColor.ColorId == colorId);

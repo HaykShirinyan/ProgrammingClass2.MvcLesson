@@ -1,50 +1,50 @@
 ﻿@model ProductColor
 
 <div>
-    <form asp-controller="ProductColors"
-          asp-action="Delele"
-          asp-route-productId="@Model.Product.Id"
-          asp-route-colorId="@Model.Color.Id">
-        <dl>
-            <dt>
-                Product ID
-            </dt>
-            <dd>
-                @Model.Product.Id
-            </dd>
-            <dt>
-                Product Name 
-              </dt>
-            <dd>
-                @Model.Product.Name
-              </dd>
-            <dt>
-                Color ID
-                </dt>
-            <dd>
-                @Model.Color.Id
-                </dd>
-            <dt>
-                Color Name
-                </dt>
-            <dd>
-                @Model.Color.Name
-                </dd>
-          </dl>
-        <p>
-            Are you sure you want to delete this color?
-            </p>
-        <div class="text-center">
-            <button type="submit" class="btn btn-primary">
-                Yes
-                </button>
+  <form asp-controller="ProductColors"
+        asp-action="Delele"
+        asp-route-productId="@Model.Product.Id"
+        asp-route-colorId="@Model.Color.Id">
+    <dl>
+      <dt>
+        Product ID
+      </dt>
+      <dd>
+        @Model.Product.Id
+      </dd>
+      <dt>
+        Product Name
+      </dt>
+      <dd>
+        @Model.Product.Name
+      </dd>
+      <dt>
+        Color ID
+      </dt>
+      <dd>
+        @Model.Color.Id
+      </dd>
+      <dt>
+        Color Name
+      </dt>
+      <dd>
+        @Model.Color.Name
+      </dd>
+    </dl>
+    <p>
+      Are you sure you want to delete this color?
+    </p>
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary">
+        Yes
+      </button>
 
-            <a asp-controller="ProductColors"
-               asp-action="Index"
-               asp-route-productId="@Model.Product.Id"
-               class="btn btn-secondary">
-                No
-                </a>
-            </div>
-       </form>
-   </div>
+      <a asp-controller="ProductColors"
+         asp-action="Index"
+         asp-route-productId="@Model.Product.Id"
+         class="btn btn-secondary">
+        No
+      </a>
+    </div>
+  </form>
+</div>
