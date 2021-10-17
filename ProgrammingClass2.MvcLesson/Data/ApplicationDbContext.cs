@@ -32,10 +32,23 @@ namespace ProgrammingClass2.MvcLesson.Data
         public DbSet<ProductType> ProductTypes { get; set; }
         public DbSet<Currency> Currencies { get; set; }
 
-         
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<ProductCategory> ProductCategories { get; set; }
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
+        }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+
+            // Ayspes nshum enq vor ProductCategory table-i primary key-n baxkacac e linelu ProductId ev CategoryId syuneric.
+            // Sa shat karevor e many-to-many-relationship jamanak.
+            builder.Entity<ProductCategory>()
+                // model => new { model.ProductId, model.CategoryId } kochvum e lambda function
+                .HasKey(model => new { model.ProductId, model.CategoryId });
         }
     }
 }

@@ -1,0 +1,59 @@
+﻿@model ProductCategoryVm
+
+<div>
+  <h2>
+    @Model.Product.Name Categories
+  </h2>
+
+  <a asp-controller="ProductCategories"
+     asp-action="Create"
+     asp-route-productId="@Model.Product.Id"
+     class="btn btn-primary mb-3">
+    Create
+  </a>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>
+          ID
+        </th>
+        <th>
+          Name
+        </th>
+        <th>
+          Description
+        </th>
+        <th>
+          Actions
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      @foreach (var productCategory in Model.ProductCategories)
+      { 
+        <tr>
+          <td>
+            @productCategory.Category.ID
+          </td>
+          <td>
+            @productCategory.Category.Name
+          </td>
+          <td>
+            @productCategory.Category.Description
+          </td>
+          <td>
+            <a asp-controller="ProductCategories"
+               asp-action="Delete"
+               asp-route-productId="@Model.Product.Id"
+               asp-route-categoryId="@productCategory.Category.ID"
+               class="btn btn-secondary">
+              Delete
+            </a>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
