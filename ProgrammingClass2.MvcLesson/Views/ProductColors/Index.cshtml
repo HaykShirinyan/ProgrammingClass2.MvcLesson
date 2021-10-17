@@ -1,11 +1,11 @@
-﻿@model ProductCategoryVm
+﻿@model ProductColorVm
 
 <div>
   <h2>
-    @Model.Product.Name Categories
+    @Model.Product.Name Colors
   </h2>
 
-  <a asp-controller="ProductCategories"
+  <a asp-controller="ProductColors"
      asp-action="Create"
      asp-route-productId="@Model.Product.Id"
      class="btn btn-primary mb-3">
@@ -31,23 +31,23 @@
     </thead>
 
     <tbody>
-      @foreach (var productCategory in Model.ProductCategories)
+      @foreach (var productColor in Model.ProductColors)
       { 
         <tr>
           <td>
-            @productCategory.Category.Id
+            @productColor.Color.Id
           </td>
           <td>
-            @productCategory.Category.Name
+            @productColor.Color.Name
           </td>
           <td>
-            @productCategory.Category.Description
+            @productColor.Color.Description
           </td>
           <td>
-            <a asp-controller="ProductCategories"
+            <a asp-controller="ProductColors"
                asp-action="Delete"
                asp-route-productId="@Model.Product.Id"
-               asp-route-categoryId="@productCategory.Category.Id"
+               asp-route-categoryId="@productColor.Color.Id"
                class="btn btn-secondary">
               Delete
             </a>

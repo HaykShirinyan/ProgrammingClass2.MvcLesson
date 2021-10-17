@@ -1,10 +1,10 @@
-﻿@model ProductCategory
+﻿@model ProductColor
 
 <div>
-  <form asp-controller="ProductCategories"
+  <form asp-controller="ProductColors"
         asp-action="Delete"
         asp-route-productId="@Model.Product.Id"
-        asp-route-categoryId="@Model.Category.Id">
+        asp-route-categoryId="@Model.Color.Id">
     <dl>
       <dt>
         Product ID
@@ -21,22 +21,22 @@
       </dd>
 
       <dt>
-        Category ID
+        Color ID
       </dt>
       <dd>
-        @Model.Category.Id
+        @Model.Color.Id
       </dd>
 
       <dt>
-        Category Name
+        Color Name
       </dt>
       <dd>
-        @Model.Category.Name
+        @Model.Color.Name
       </dd>
     </dl>
 
     <p>
-      Are you sure you want to delete this category?
+      Are you sure you want to delete this color?
     </p>
 
     <div class="text-center">
@@ -44,7 +44,7 @@
         Yes
       </button>
 
-      <a asp-controller="ProductCategories"
+      <a asp-controller="ProductColors"
          asp-action="Index"
          asp-route-productId="@Model.Product.Id"
          class="btn btn-secondary">

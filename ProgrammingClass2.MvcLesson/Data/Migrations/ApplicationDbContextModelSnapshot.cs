@@ -221,7 +221,7 @@ namespace ProgrammingClass2.MvcLesson.Data.Migrations
 
             modelBuilder.Entity("ProgrammingClass2.MvcLesson.Models.Category", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -235,51 +235,9 @@ namespace ProgrammingClass2.MvcLesson.Data.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.HasKey("Id");
+                    b.HasKey("ID");
 
                     b.ToTable("Categories");
-                });
-
-            modelBuilder.Entity("ProgrammingClass2.MvcLesson.Models.Color", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Description")
-                        .HasMaxLength(300)
-                        .HasColumnType("nvarchar(300)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Colors");
-                });
-
-            modelBuilder.Entity("ProgrammingClass2.MvcLesson.Models.Currency", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Description")
-                        .HasMaxLength(300)
-                        .HasColumnType("nvarchar(300)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Currencies");
                 });
 
             modelBuilder.Entity("ProgrammingClass2.MvcLesson.Models.Product", b =>
@@ -289,9 +247,6 @@ namespace ProgrammingClass2.MvcLesson.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("CurrencyId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Description")
                         .HasMaxLength(300)
                         .HasColumnType("nvarchar(300)");
@@ -300,9 +255,6 @@ namespace ProgrammingClass2.MvcLesson.Data.Migrations
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
-
-                    b.Property<int?>("ProductTypeId")
-                        .HasColumnType("int");
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
@@ -315,34 +267,24 @@ namespace ProgrammingClass2.MvcLesson.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CurrencyId");
-
-                    b.HasIndex("ProductTypeId");
-
                     b.HasIndex("UnitOfMeasureId");
 
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("ProgrammingClass2.MvcLesson.Models.ProductType", b =>
+            modelBuilder.Entity("ProgrammingClass2.MvcLesson.Models.ProductCategory", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("Description")
-                        .HasMaxLength(300)
-                        .HasColumnType("nvarchar(300)");
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                    b.HasKey("ProductId", "CategoryId");
 
-                    b.HasKey("Id");
+                    b.HasIndex("CategoryId");
 
-                    b.ToTable("ProductTypes");
+                    b.ToTable("ProductCategories");
                 });
 
             modelBuilder.Entity("ProgrammingClass2.MvcLesson.Models.UnitOfMeasure", b =>
@@ -419,23 +361,30 @@ namespace ProgrammingClass2.MvcLesson.Data.Migrations
 
             modelBuilder.Entity("ProgrammingClass2.MvcLesson.Models.Product", b =>
                 {
-                    b.HasOne("ProgrammingClass2.MvcLesson.Models.Currency", "Currency")
-                        .WithMany()
-                        .HasForeignKey("CurrencyId");
-
-                    b.HasOne("ProgrammingClass2.MvcLesson.Models.ProductType", "ProductType")
-                        .WithMany()
-                        .HasForeignKey("ProductTypeId");
-
                     b.HasOne("ProgrammingClass2.MvcLesson.Models.UnitOfMeasure", "UnitOfMeasure")
                         .WithMany()
                         .HasForeignKey("UnitOfMeasureId");
 
-                    b.Navigation("Currency");
-
-                    b.Navigation("ProductType");
-
                     b.Navigation("UnitOfMeasure");
+                });
+
+            modelBuilder.Entity("ProgrammingClass2.MvcLesson.Models.ProductCategory", b =>
+                {
+                    b.HasOne("ProgrammingClass2.MvcLesson.Models.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ProgrammingClass2.MvcLesson.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+
+                    b.Navigation("Product");
                 });
 #pragma warning restore 612, 618
         }

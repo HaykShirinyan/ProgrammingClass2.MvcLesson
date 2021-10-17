@@ -12,7 +12,7 @@ namespace ProgrammingClass2.MvcLesson.Controllers
 {
     public class ProductsController : Controller
     {
-        private ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
         public ProductsController(ApplicationDbContext context)
         {

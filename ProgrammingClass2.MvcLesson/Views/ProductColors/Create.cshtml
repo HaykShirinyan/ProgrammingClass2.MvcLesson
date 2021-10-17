@@ -1,7 +1,7 @@
-﻿@model CreateProductCategoryVm
+﻿@model CreateProductColorVm
 
 <div>
-  <form asp-controller="ProductCategories" asp-action="Create">
+  <form asp-controller="ProductColors" asp-action="Create">
     <div class="form-group">
       <label asp-for="Product.Id">
         Product ID
@@ -17,14 +17,14 @@
     </div>
 
     <div class="form-group">
-      <label asp-for="SelectedCategoryId">
-        Category
+      <label asp-for="SelectedColorId">
+        Color
       </label>
-      <select asp-for="SelectedCategoryId" class="form-control">
-        @foreach (var category in Model.Categories)
+      <select asp-for="SelectedColorId" class="form-control">
+        @foreach (var color in Model.Colors)
         { 
-          <option value="@category.Id">
-            @category.Name
+          <option value="@color.Id">
+            @color.Name
           </option>
         }
       </select>
@@ -32,7 +32,7 @@
 
     <div class="text-center">
       <button type="submit" class="btn btn-primary">
-        Assign Category
+        Assign Color
       </button>
     </div>
   </form>
