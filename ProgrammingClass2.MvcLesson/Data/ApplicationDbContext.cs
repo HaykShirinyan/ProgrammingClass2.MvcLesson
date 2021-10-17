@@ -18,14 +18,14 @@ namespace ProgrammingClass2.MvcLesson.Data
         public DbSet<ProductCategory> ProductCategories { get; set; }
         public DbSet<ProductColor> ProductColors { get; set; }
 
-          public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-            : base(options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+          : base(options)
         {
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            base.OnModelCreating(builder);  
+            base.OnModelCreating(builder);
 
             builder.Entity<ProductCategory>()
                 .HasKey(model => new { model.ProductId, model.CategoryId });
