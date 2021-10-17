@@ -29,7 +29,6 @@ namespace ProgrammingClass2.MvcLesson.Data
             builder.Entity<ProductCategory>()
                 .HasKey(model => new { model.ProductId, model.CategoryId });
 
-
             base.OnModelCreating(builder);
             builder.Entity<ProductColor>()
                 .HasKey(model => new { model.ProductId, model.ColorId });

@@ -10,7 +10,7 @@ namespace ProgrammingClass2.MvcLesson.Controllers
 {
     public class CategoriesController : Controller
     {
-        private ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
         public CategoriesController(ApplicationDbContext context)
         {
