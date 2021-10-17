@@ -41,7 +41,7 @@
 
         <div class="form-group">
             <label asp-for="Product.ProductTypeId">
-               ProductType
+                ProductType
             </label>
             <select asp-for="Product.ProductTypeId" class="form-control">
                 <option value=""></option>
@@ -79,6 +79,14 @@
                 Unit Price
             </label>
             <input asp-for="Product.UnitPrice" class="form-control" />
+        </div>
+
+        <div>
+            <a asp-controller="ProductCategories"
+               asp-action="Index"
+               asp-route-productId="@Model.Product.Id">
+                Categories
+            </a>
         </div>
 
         <div class="text-center">
