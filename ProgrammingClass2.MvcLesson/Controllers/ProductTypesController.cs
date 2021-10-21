@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProgrammingClass2.MvcLesson.Data;
+using ProgrammingClass2.MvcLesson.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +29,20 @@ namespace ProgrammingClass2.MvcLesson.Controllers
         public IActionResult Create()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(ProductType productType)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.ProductTypes.Add(productType);
+                _context.SaveChanges();
+
+                return RedirectToAction(nameof(ProductTypesController.Index));
+            }
+
+            return BadRequest(ModelState);
         }
     }
 }

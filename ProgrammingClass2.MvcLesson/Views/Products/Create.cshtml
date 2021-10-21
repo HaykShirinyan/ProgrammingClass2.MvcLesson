@@ -26,6 +26,20 @@
     </div>
 
     <div class="form-group">
+        <label asp-for="ProductTypeId">
+            Product Type
+        </label>
+        <select asp-for="ProductTypeId" class="form-control">
+            <option value=""></option>
+
+            @foreach(var productType in ViewBag.ProductTypes as List<ProductType>)
+            {
+                <option value="@productType.Id">@productType.Name</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
       <label asp-for="UnitOfMeasureId">
         Unit of Measure
       </label>

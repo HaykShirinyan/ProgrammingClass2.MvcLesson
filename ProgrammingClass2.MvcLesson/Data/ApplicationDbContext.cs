@@ -26,9 +26,12 @@ namespace ProgrammingClass2.MvcLesson.Data
         // 5rd qayln ayn e, vor ogtagorcum enq 4rd qaylum stexcvac migratione database update anelu hamar. Cmd Line-i mej grum enq hetevyale`
         // dotnet ef database update.
         public DbSet<Product> Products { get; set; }
+
         public DbSet<UnitOfMeasure> UnitOfMeasures { get; set; }
 
         public DbSet<Category> Categories { get; set; }
+
+        public DbSet<ProductType> ProductTypes { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
