@@ -1,7 +1,7 @@
 ﻿@model ProductType
 
 <div>
-    <form>
+    <form asp-controller="Products" asp-action="Create">
         <div class="form-group">
             <label asp-for="Name">
                     Name
@@ -14,7 +14,7 @@
                 Description
             </label>
             <textarea asp-for="Description" class="form-control"></textarea>
-        </div>
+        </div>               
 
         <div class="text-center">
             <button type="submit" class="btn btn-primary">
