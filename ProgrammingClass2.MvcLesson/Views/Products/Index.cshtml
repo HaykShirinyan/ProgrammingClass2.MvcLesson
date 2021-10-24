@@ -28,7 +28,13 @@
           Unit of Measure
         </th>
         <th>
+            Product Type
+        </th>
+        <th>
           Quantity
+        </th>
+        <th>
+            Currency
         </th>
         <th>
           Unit Price
@@ -58,7 +64,13 @@
             @product.UnitOfMeasure?.Name
           </td>
           <td>
+            @product.ProductType?.Name
+          </td>
+          <td>
             @product.Quantity
+          </td>
+          <td>
+              @product.Currency?.Name
           </td>
           <td>
             @product.UnitPrice

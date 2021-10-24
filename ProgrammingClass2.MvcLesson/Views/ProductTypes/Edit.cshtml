@@ -1,2 +1,31 @@
-﻿@model Product
+﻿@model ProductType
+<div>
+<form asp-controller="ProductTypes" asp-action="Edit">
+    <div class="form-group">
+        <label asp-for="Id">
+            ID
+        </label>
+        <input asp-for="Id" class="form-control" disabled="disabled" />
+    </div>
 
+    <div class="form-group">
+        <label asp-for="Name">
+            Name
+        </label>
+        <input asp-for="Name" class="form-control" />        
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Description">
+            Description
+        </label>
+        <textarea asp-for="Description" class="form-control"></textarea>        
+    </div>
+
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary">
+            Update
+        </button>
+    </div>
+</form>
+</div>

@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace ProgrammingClass2.MvcLesson.Controllers
 {
-    public class ProductTypesController : Controller
+    public class CurrenciesController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public ProductTypesController(ApplicationDbContext context)
+        public CurrenciesController(ApplicationDbContext context)
         {
             _context = context;
         }
@@ -20,9 +20,9 @@ namespace ProgrammingClass2.MvcLesson.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            var productTypes = _context.ProductTypes.ToList();
+            var currencies = _context.Currencies.ToList();
 
-            return View(productTypes);
+            return View(currencies);
         }
 
         [HttpGet]
@@ -32,14 +32,14 @@ namespace ProgrammingClass2.MvcLesson.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(ProductType productType)
+        public IActionResult Create(Currency currency)
         {
-            if (ModelState.IsValid)
+            if (this.ModelState.IsValid)
             {
-                _context.ProductTypes.Add(productType);
+                _context.Currencies.Add(currency);
                 _context.SaveChanges();
 
-                return RedirectToAction(nameof(ProductTypesController.Index));
+                return RedirectToAction(nameof(CurrenciesController.Index));
             }
 
             return BadRequest(ModelState);
@@ -48,40 +48,40 @@ namespace ProgrammingClass2.MvcLesson.Controllers
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            var productType = _context.ProductTypes.Find(id);
+            var currency = _context.Currencies.Find(id);
 
-            if (productType != null)
+            if (currency != null)
             {
-                return View(productType);
+                return View(currency);
             }
 
             return NotFound();
         }
 
         [HttpPost]
-        public IActionResult Edit(ProductType productType)
+        public IActionResult Edit(Currency currency)
         {
             if (this.ModelState.IsValid)
             {
-                _context.ProductTypes.Update(productType);
+                _context.Currencies.Update(currency);
                 _context.SaveChanges();
 
                 return RedirectToAction(nameof(Index));
             }
 
-            return View(productType);
+            return View(currency);
         }
 
         [HttpGet]
         public IActionResult Delete(int id)
         {
-            var productType = _context.ProductTypes.Find(id);
+            var currency = _context.Currencies.Find(id);
 
-            if (productType != null)
+            if (currency != null)
             {
-                return View(productType);
-            }    
-            
+                return View(currency);
+            }
+
             return NotFound();
         }
 
@@ -89,11 +89,11 @@ namespace ProgrammingClass2.MvcLesson.Controllers
         [ActionName("Delete")]
         public IActionResult DeleteConfirmed(int id)
         {
-            var productType = _context.ProductTypes.Find(id);
+            var currency = _context.Currencies.Find(id);
 
-            if (productType != null)
+            if (currency != null)
             {
-                _context.ProductTypes.Remove(productType);
+                _context.Currencies.Remove(currency);
                 _context.SaveChanges();
 
                 return RedirectToAction(nameof(Index));

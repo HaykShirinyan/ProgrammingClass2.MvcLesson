@@ -38,5 +38,7 @@ namespace ProgrammingClass2.MvcLesson.Models
         public UnitOfMeasure UnitOfMeasure { get; set; }        
         public int? ProductTypeId { get; set; }
         public ProductType ProductType { get; set; }
+        public int? CurrencyId { get; set; }
+        public Currency Currency { get; set; }
     }
 }

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProgrammingClass2.MvcLesson.Data;
 
 namespace ProgrammingClass2.MvcLesson.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211024082458_Currencies")]
+    partial class Currencies
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -268,9 +270,6 @@ namespace ProgrammingClass2.MvcLesson.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("CurrencyId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Description")
                         .HasMaxLength(300)
                         .HasColumnType("nvarchar(300)");
@@ -293,8 +292,6 @@ namespace ProgrammingClass2.MvcLesson.Data.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CurrencyId");
 
                     b.HasIndex("ProductTypeId");
 
@@ -398,10 +395,6 @@ namespace ProgrammingClass2.MvcLesson.Data.Migrations
 
             modelBuilder.Entity("ProgrammingClass2.MvcLesson.Models.Product", b =>
                 {
-                    b.HasOne("ProgrammingClass2.MvcLesson.Models.Currency", "Currency")
-                        .WithMany()
-                        .HasForeignKey("CurrencyId");
-
                     b.HasOne("ProgrammingClass2.MvcLesson.Models.ProductType", "ProductType")
                         .WithMany()
                         .HasForeignKey("ProductTypeId");
@@ -409,8 +402,6 @@ namespace ProgrammingClass2.MvcLesson.Data.Migrations
                     b.HasOne("ProgrammingClass2.MvcLesson.Models.UnitOfMeasure", "UnitOfMeasure")
                         .WithMany()
                         .HasForeignKey("UnitOfMeasureId");
-
-                    b.Navigation("Currency");
 
                     b.Navigation("ProductType");
 

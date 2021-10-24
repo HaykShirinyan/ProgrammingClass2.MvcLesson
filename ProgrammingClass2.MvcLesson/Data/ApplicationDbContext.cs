@@ -33,6 +33,8 @@ namespace ProgrammingClass2.MvcLesson.Data
 
         public DbSet<ProductType> ProductTypes { get; set; }
 
+        public DbSet<Currency> Currencies { get; set; }
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
