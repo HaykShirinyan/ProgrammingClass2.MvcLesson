@@ -1,0 +1,24 @@
+﻿@model Color
+<div>
+    <form asp-controller="Colors" asp-action="Edit">
+        <div class="form-group">
+            <label asp-for="ID">
+                ID
+            </label>
+            <input asp-for="ID" class="form-control" disabled="disabled" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Name">
+                Name
+            </label>
+            <input asp-for="Name" class="form-control" />
+        </div>
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">
+                Update
+            </button>
+        </div>
+    </form>
+</div>

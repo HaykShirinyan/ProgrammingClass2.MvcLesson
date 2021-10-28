@@ -1,84 +1,112 @@
-﻿@model Product
+﻿@model ProductVm
 
 <div>
-  <form asp-controller="Products" asp-action="Edit">
-    @* Mek ayl tarberak e ID-n type="hidden" input-i mej dnele. Ays tarberake harmaer e, erb ID-nere petq che user-nerin cuyc tal. *@
-    @*<input asp-for="Id" type="hidden" />*@
+    <form asp-controller="Products" asp-action="Edit">
+        @* Mek ayl tarberak e ID-n type="hidden" input-i mej dnele. Ays tarberake harmaer e, erb ID-nere petq che user-nerin cuyc tal. *@
+        @*<input asp-for="Id" type="hidden" />*@
 
-    @* 
-      Edit anelu jamanak shat karevor e ayd toxi ID-n voreve mi text form-i mej dnel.
-      Hakarak depqum aranc ID-i edit anel chi stacvi mer controller-i action-i mej.  
-    *@
-    <div class="form-group">
-      <label asp-for="Id">
-        ID
-      </label>
-      @* Aystex mer ID text box-i vra petq e disabled attribute dnenq, vorovhetev toxi ID-n hnaravor che poxel *@
-      <input asp-for="Id" class="form-control" disabled="disabled" />
-    </div>
+        @*
+        Edit anelu jamanak shat karevor e ayd toxi ID-n voreve mi text form-i mej dnel.
+        Hakarak depqum aranc ID-i edit anel chi stacvi mer controller-i action-i mej.
+        *@
+        <div class="form-group">
+            <label asp-for="Product.Id">
+                ID
+            </label>
+            @* Aystex mer ID text box-i vra petq e disabled attribute dnenq, vorovhetev toxi ID-n hnaravor che poxel *@
+            <input asp-for="Product.Id" class="form-control" readonly="readonly" />
+        </div>
 
-    <div class="form-group">
-      <label asp-for="Name">
-        Name
-      </label>
-      <input asp-for="Name" class="form-control" />
-      <span asp-validation-for="Name" class="text-danger"></span>
-    </div>
+        <div class="form-group">
+            <label asp-for="Product.Name">
+                Name
+            </label>
+            <input asp-for="Product.Name" class="form-control" />
+            <span asp-validation-for="Product.Name" class="text-danger"></span>
+        </div>
 
-    <div class="form-group">
-      <label asp-for="Description">
-        Description
-      </label>
-      <input asp-for="Description" class="form-control" />
-      <span asp-validation-for="Description" class="text-danger"></span>
-    </div>
+        <div class="form-group">
+            <label asp-for="Product.Description">
+                Description
+            </label>
+            <input asp-for="Product.Description" class="form-control" />
+            <span asp-validation-for="Product.Description" class="text-danger"></span>
+        </div>
 
-      <div class="form-group">
-        <label asp-for="ProductTypeId">
-            Product Type
-        </label>
-        <select asp-for="ProductTypeId" class="form-control">
-            <option value=""></option>
+        <div class="form-group">
+            <label asp-for="Product.ProductTypeId">
+                Product Type
+            </label>
+            <select asp-for="Product.ProductTypeId" class="form-control">
+                <option value=""></option>
 
-            @foreach(var productType in ViewBag.ProductTypes as List<ProductType>)
-            {
-                <option value="@productType.Id">@productType.Name</option>
-            }
-        </select>
-    </div>
+                @foreach (var productType in Model.ProductTypes)
+                {
+                    <option value="@productType.Id">@productType.Name</option>
+                }
+            </select>
+        </div>
 
-    <div class="form-group">
-      <label asp-for="UnitOfMeasureId">
-        Unit Of Measure
-      </label>
-      <select asp-for="UnitOfMeasureId" class="form-control">
-        <option value=""></option>
+        <div class="form-group">
+            <label asp-for="Product.UnitOfMeasureId">
+                Unit Of Measure
+            </label>
+            <select asp-for="Product.UnitOfMeasureId" class="form-control">
+                <option value=""></option>
 
-        @foreach(var uom in ViewBag.UnitOfMeasures as List<UnitOfMeasure>)
-        { 
-          <option value="@uom.Id">@uom.Name</option>
-        }
-      </select>
-    </div>
+                @foreach (var uom in Model.UnitOfMeasures)
+                {
+                    <option value="@uom.Id">@uom.Name</option>
+                }
+            </select>
+        </div>
 
-    <div class="form-group">
-      <label asp-for="Quantity">
-        Quantity
-      </label>
-      <input asp-for="Quantity" class="form-control" />
-    </div>
+        <div class="form-group">
+            <label asp-for="Product.ColorId">
+                Color
+            </label>
+            <select asp-for="Product.ColorId" class="form-control">
+                <option value=""></option>
 
-    <div class="form-group">
-      <label asp-for="UnitPrice">
-        Unit Price
-      </label>
-      <input asp-for="UnitPrice" class="form-control" />
-    </div>
+                @foreach (var color in Model.Colors)
+                {
+                    <option value="@color.ID">@color.Name</option>
+                }
+            </select>
+        </div>
 
-    <div class="text-center">
-      <button type="submit" class="btn btn-primary">
-        Update
-      </button>
-    </div>
-  </form>
+        <div class="form-group">
+            <label asp-for="Product.Quantity">
+                Quantity
+            </label>
+            <input asp-for="Product.Quantity" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Product.CurrencyId">
+                Currency
+            </label>
+            <select asp-for="Product.CurrencyId" class="form-control">
+                <option value=""></option>
+
+                @foreach (var currency in Model.Currencies)
+                {
+                    <option value="@currency.Id">@currency.Name</option>
+                }
+            </select>            
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Product.UnitPrice">
+                Unit Price
+            </label>
+            <input asp-for="Product.UnitPrice" class="form-control" />
+        </div>
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">
+                Update
+            </button>
+        </div>
+    </form>
 </div>

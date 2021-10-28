@@ -35,6 +35,8 @@ namespace ProgrammingClass2.MvcLesson.Data
 
         public DbSet<Currency> Currencies { get; set; }
 
+        public DbSet<Color> Colors { get; set; }
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
