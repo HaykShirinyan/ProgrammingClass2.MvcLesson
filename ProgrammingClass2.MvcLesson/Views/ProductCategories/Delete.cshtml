@@ -1,0 +1,55 @@
+﻿@model ProductCategory
+
+<div>
+  <form asp-controller="ProductCategories"
+        asp-action="Delete"
+        asp-route-productId="@Model.Product.Id"
+        asp-route-categoryId="@Model.Category.ID">
+    <dl>
+      <dt>
+        Product ID
+      </dt>
+      <dd>
+        @Model.Product.Id
+      </dd>
+
+      <dt>
+        Product Name
+      </dt>
+      <dd>
+        @Model.Product.Name
+      </dd>
+
+      <dt>
+        Category ID
+      </dt>
+      <dd>
+        @Model.Category.ID
+      </dd>
+
+      <dt>
+        Category Name
+      </dt>
+      <dd>
+        @Model.Category.Name
+      </dd>
+    </dl>
+
+    <p>
+      Are you sure you want to delete this category?
+    </p>
+
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary">
+        Yes
+      </button>
+
+      <a asp-controller="ProductCategories"
+         asp-action="Index"
+         asp-route-productId="@Model.Product.Id"
+         class="btn btn-secondary">
+        No
+      </a>
+    </div>
+  </form>
+</div> 
