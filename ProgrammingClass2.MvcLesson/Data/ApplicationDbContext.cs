@@ -38,6 +38,8 @@ namespace ProgrammingClass2.MvcLesson.Data
 
         public DbSet<Color> Colors { get; set; }
 
+        public DbSet<ProductColor> ProductColors { get; set; }
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
@@ -49,9 +51,12 @@ namespace ProgrammingClass2.MvcLesson.Data
 
             // Ayspes nshum enq vor ProductCategory table-i primary key-n baxkacac e linelu ProductId ev CategoryId syuneric.
             // Sa shat karevor e many-to-many-relationship jamanak.
-            builder.Entity<ProductCategory>()
+            builder.Entity<ProductCategory>()                
                 // model => new { model.ProductId, model.CategoryId } kochvum e lambda function
-                .HasKey(model => new { model.ProductId, model.CategoryId });
-        }
+                .HasKey(model => new { model.ProductId, model.CategoryId });            
+
+            builder.Entity<ProductColor>()
+                .HasKey(model => new { model.ProductId, model.ColorId });
+        }     
     }
 }

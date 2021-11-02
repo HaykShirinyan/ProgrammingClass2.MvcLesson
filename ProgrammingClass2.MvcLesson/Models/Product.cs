@@ -44,10 +44,6 @@ namespace ProgrammingClass2.MvcLesson.Models
 
         public int? CurrencyId { get; set; }
 
-        public Currency Currency { get; set; }
-
-        public int? ColorId { get; set; }
-
-        public Color Color { get; set; }
+        public Currency Currency { get; set; }        
     }
 }

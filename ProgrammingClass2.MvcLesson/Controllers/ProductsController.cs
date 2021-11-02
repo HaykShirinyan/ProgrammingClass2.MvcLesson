@@ -36,8 +36,7 @@ namespace ProgrammingClass2.MvcLesson.Controllers
             List<Product> products = _context.Products
                 .Include(product => product.ProductType)
                 .Include(product => product.UnitOfMeasure)
-                .Include(product => product.Currency)
-                .Include(product => product.Color)
+                .Include(product => product.Currency)                
                 .ToList();           
 
             // Aystex menq nshum enq, vor menq uzum enq UnitOfMeasure-neri liste miacnel mer product-neri list-in (Join)
@@ -58,8 +57,7 @@ namespace ProgrammingClass2.MvcLesson.Controllers
             {
                 UnitOfMeasures = _context.UnitOfMeasures.ToList(),
                 ProductTypes = _context.ProductTypes.ToList(),
-                Currencies = _context.Currencies.ToList(),
-                Colors = _context.Colors.ToList(),
+                Currencies = _context.Currencies.ToList(),                
             };
 
             return View(createViewModel);
@@ -81,8 +79,7 @@ namespace ProgrammingClass2.MvcLesson.Controllers
             // Ete validation-i het kapvac xndirner kan, menq petq e noric UnitOfMeasures list database-ic vercnenq ev het uxarkenq.
             productVm.UnitOfMeasures = _context.UnitOfMeasures.ToList();
             productVm.ProductTypes = _context.ProductTypes.ToList();
-            productVm.Currencies = _context.Currencies.ToList();
-            productVm.Colors = _context.Colors.ToList();
+            productVm.Currencies = _context.Currencies.ToList();            
 
             return View(productVm);
         }
